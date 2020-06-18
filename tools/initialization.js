@@ -1,7 +1,7 @@
 const User = require ('../models/user');
 
 //check existing admin and create admin account
-const initialization = () => {
+const initialization = async() => {
    
     try {
         const Exist_Admin = await User.findOne ({role : 'admin'});
