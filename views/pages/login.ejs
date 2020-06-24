@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('../partials/head') -%>
+   <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body>
+    
+    <form class="col-md-4 offset-md-4 login" method="POST" action="/api/login">
+        <div class="form-group">
+          <label for="userName">userName</label>
+          <input type="text" class="form-control" id="userName" name="userName" placeholder="userName">
+        </div>
+        <div class="form-group">
+          <label for="password">password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+      <% if(message) { %>
+        <div class="alert alert-danger col-md-4 offset-md-4" role="alert">
+          <%= message %>
+        </div>
+      <% } %>  
+
+
+    <%- include('../partials/scripts') -%>
+</body>
+</html>

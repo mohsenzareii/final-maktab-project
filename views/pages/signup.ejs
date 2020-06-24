@@ -5,7 +5,7 @@
 </head>
 <body>
     
-    <form class="col-md-6 offset-md-3">
+    <form class="col-md-6 offset-md-3" method="POST" action="/api/signup">
         <div class="form-group">
           <label for="firstName">firstName</label>
           <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="emailHelp" placeholder="Enter firstName">
@@ -26,13 +26,26 @@
             <label for="mobile">mobile</label>
             <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile">
         </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="male" name="sex" value="male" class="custom-control-input" checked>
+          <label class="custom-control-label" for="male">male</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="female" name="sex" value="female" class="custom-control-input">
+          <label class="custom-control-label" for="female">female</label>
+        </div>
         
         <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </form>
+    
+      <% if(message) { %>
+        <div class="alert alert-danger col-md-6 offset-md-3" role="alert">
+          <%= message %>
+        </div>
+      <% } %>  
 
 
-
-
+ 
     <%- include('../partials/scripts') -%>
 </body>
 </html>
