@@ -21,7 +21,15 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 //session initialize
-
+app.use(session({
+  key : 'user-sid',
+  secret : 'somerandonstuffs',
+  resave : false,
+  saveUninitialized : false,
+  cookie : {
+      expires : 600000
+  }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

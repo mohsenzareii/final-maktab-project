@@ -4,7 +4,11 @@ const User = require ('../models/user');
 
 
 
+const isLogin = function (req, res, next) {
+    if (req.session.user) return res.redirect('/api/dashboard');
 
+    next();
+}
 
 
 router.get('/signup' , (req , res) =>{
@@ -63,9 +67,9 @@ router.post('/login' , async (req,res) =>{
             throw new Error('userName or password is incorrect');
         }                                 
 
-      
+        req.session.user = blogger;
 
-        res.redirect('/dashbord');
+        res.render('pages/dashboard', {user : req.session.user});
     } catch (error) {
         res.render('pages/login' ,{message : error.message});
     }
