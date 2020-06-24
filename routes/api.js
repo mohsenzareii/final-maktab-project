@@ -3,26 +3,30 @@ const router = express.Router();
 const User = require ('../models/user');
 
 
-router.get('/' , (req , res) =>{
-    res.send("hello");
-    //res.render('pages/signup');
+
+
+
+
+router.get('/signup' , (req , res) =>{
+    res.render('pages/signup',{message: ""});
 });
+
+
 router.post('/signup' , async(req , res) =>{
     try {
-        if (req.body.firstName || req.body.lastName || req.body.userName || req.body.mobile || req.body.password  ) {
-            return res.render('pages/signup' , {error : "Empty fields !"});
+        if (!req.body.firstName || !req.body.lastName || !req.body.userName || !req.body.mobile || !req.body.password  ) {
+            throw new Error('Empty fields !');
         }
      
         let user = await User.findOne({userName : req.body.userName});
         if (user) {
-             return res.render('pages/signup' , {error : "user already exists !"});
+             throw new Error('userName already exists !');
         }
-     
-        checkLengthInput(req.body.firstName);
-        checkLengthInput(req.body.lastName);
-        checkLengthInput(req.body.userName);
-         
-     
+        
+        if(req.body.password.length <3 || req.body.password.length > 30){
+            throw new Error('please enter password with greater than 3 or less than 30 charachters!');
+        }
+
         const New_User = new User ({
              firstName : req.body.firstName ,
              lastName : req.body.lastName ,
@@ -38,20 +42,35 @@ router.post('/signup' , async(req , res) =>{
         res.render('pages/login');
         
     } catch (error) {
-        console.log('something went wrong !' + error);
+       res.render('pages/signup',{message : error.message});
     }
 
    
 });
 
+router.get('/login', (req , res) =>{
+    res.render('pages/login' , {message : ""});
+});
+
+router.post('/login' , async (req,res) =>{
+    try {
+        if(!req.body.userName || !req.body.password){
+            throw new Error('please Enter userName and password !');
+        }
+        let blogger= await User.findOne({userName : req.body.userName ,
+                                         password : req.body.password});
+        if (!blogger){
+            throw new Error('userName or password is incorrect');
+        }                                 
+
+      
+
+        res.redirect('/dashbord');
+    } catch (error) {
+        res.render('pages/login' ,{message : error.message});
+    }
+});
 
 module.exports = router ;
 
 
-function checkLengthInput (input) {
-    if (input.length < 3) {
-        return res.render('pages/signup' , {error : input + "less than 3 characters"});
-    }else if (input.length > 30) {
-        return res.render('pages/signup' , {error : input + "greater than 30 characters"});
-    }
-};

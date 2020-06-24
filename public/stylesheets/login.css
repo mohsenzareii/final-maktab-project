@@ -1,0 +1,8 @@
+
+.login{
+    border: lightgrey solid 1px;
+    padding: 10px;
+    box-shadow: lightgrey 5px 5px 5px;
+    border-radius: 5px;
+    margin-top: 100px;
+}
