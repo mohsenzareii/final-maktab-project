@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.padding-0{
+    padding: 0;
+}
+
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.margin-top-20{
+    margin-top: 20px;
+}
+
+.margin-top-10{
+    margin-top: 10px;
+}
+
+.right-to-left{
+    direction: rtl;
+    text-align: right;
+}
+
+body{
+    background-color: rgb(53, 155, 219);
+}
+
+.card{
+  border-radius: 5px;
+  border: none;
+  margin-top: 150px;
+  position:relative;
+}
+
+.photo{
+ width: inherit;
+ border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+}
+
+.card-info{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+
+.user-name{
+    text-align: center;
+}
+
+
+
+
+.articles,.comments{
+    text-align: center;
+}
+
+.num-articles,.num-comments{
+    text-align: center;
+}
+
+.add-article,.num-comments{
+    position: relative;
+    z-index: 2;
+}
+.add{
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    width: 24px;
+    background-color: rgb(0, 255, 0);
+    color: white;
+    
+}
+
+.show-comments{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.edit{
+    position: relative;
+   margin-top: -26px;
+}
+
+.edit-button{
+    border-radius: 50%;
+    height: 52px;
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+    
+    
+    margin-right: -25px;
+}
+
+.log-out{
+    border-radius: 50%;
+    height: 52px;
+    width: 52px;
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+    margin-right:295px;
+   
+}

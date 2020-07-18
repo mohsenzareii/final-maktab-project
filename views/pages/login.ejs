@@ -7,16 +7,16 @@
 <body>
     
     <form class="col-md-4 offset-md-4 login" method="POST" action="/api/login">
-        <div class="form-group">
-          <label for="userName">userName</label>
-          <input type="text" class="form-control" id="userName" name="userName" placeholder="userName">
+        <div class="form-group" >
+          <label for="userName" >نام کاربری</label>
+          <input type="text" class="form-control" id="userName" name="userName" placeholder="نام کاربری">
         </div>
         <div class="form-group">
-          <label for="password">password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="password">
+          <label for="password">رمز عبور</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="رمز عبور">
         </div>
         
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary">ورود</button>
       </form>
       <% if(message) { %>
         <div class="alert alert-danger col-md-4 offset-md-4" role="alert">
