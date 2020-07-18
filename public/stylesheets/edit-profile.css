@@ -1,0 +1,23 @@
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.margin-top-10{
+    margin-top: 10px;
+}
+
+.right-to-left{
+    direction: rtl;
+    text-align: right;
+}
+
+.profile-photo{
+    border-radius: 5px;
+    padding: 0;
+}
+
+.choosed-photo{
+    background-color: blue;
+    border: none;
+    color: white;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/edit-profile.css">
+</head>
+<body>
+    <div class="col-8 offset-2">
+        <img src="/gallary/default-photo.png"  class="profile-photo col-4 offset-4 margin-top-30" alt="">
+        <div class="custom-file col-4 offset-4 margin-top-10">
+            <input type="file" class="custom-file-input" id="customFile" accept="image/*">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+
+          <form action="" method="" class="needs-validation margin-top-30" novalidate>
+            <div class="form-row">
+              <div class="col-md-4 offset-4 right-to-left margin-top-10">
+                <label  for="firstName">نام </label>
+                <input type="text" class="form-control" id="firstName" placeholder="First name" value="<%= user.firstName %>" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-4 offset-4 right-to-left margin-top-10">
+                <label for="lastName">نام خانوادگی</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last name" value="<%= user.lastName %>" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-4 offset-4 right-to-left margin-top-10">
+                <label for="userName">نام کاربری</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="userName" placeholder="Username" value="<%= user.userName %>" aria-describedby="inputGroupPrepend" required>
+                  <div class="invalid-feedback">
+                    Please choose a username.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <input type="button" class="btn btn-primary col-4 offset-4 margin-top-10" value="تایید" onclick="edit()">
+          </form>
+         
+          <% if (message) { %>
+            <div class="alert alert-danger" role="alert">
+               <%= message %>
+            </div>
+          <% } %>  
+          
+    </div>
+    <%- include('../partials/scripts') %>
+    <script src="/javascripts/editProfile.js"></script>
+</body>
+</html>

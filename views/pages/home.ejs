@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') -%>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+<body>
+    
+
+    <div class="menu">
+        <div class="content padding-10" >
+          
+            <form action="/api/login" method="GET">
+                <input class="login" type="submit" value="ورود">
+            </form>
+            <hr class="divider">
+        
+            <form action="/api/signup" method="GET">
+                <input class="signup" type="submit" value="ثبت نام">
+            </form>
+        </div>
+       
+    </div>
+    
+</body>
+</html>

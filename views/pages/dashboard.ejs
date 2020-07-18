@@ -2,8 +2,76 @@
 <html lang="en">
 <head>
     <%- include('../partials/head') -%>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
 </head>
 <body>
-    <%= user.userName %>
+  
+  <div class="card col-6 offset-3 ">
+    
+      <div class="row">
+          <div class="card-photo col-5 padding-0">
+            <img src="/gallary/default-photo.png" class="photo" alt="">
+          </div>
+
+          <div class="card-info col-7 padding-0">
+            <div class="col-6 offset-3 margin-top-30">
+              <h3 class="user-name"><%= user.userName %></h3>
+            </div>
+
+            <div class="public-info col right-to-left margin-top-20">
+                <div class="first-name col right-to-left"><i class="fa fa-user" style="color: blue;" aria-hidden="true"></i>  <%= user.firstName %> <%= user.lastName %> </div> 
+                <div class="first-name col right-to-left margin-top-10"><i class="fa fa-transgender" style="color: palevioletred;" aria-hidden="true"></i> <%= user.sex %></div>
+                <div class="first-name col right-to-left margin-top-10"><i class="fa fa-mobile" aria-hidden="true"></i> <%= user.mobile %></div>
+                <div class="first-name col right-to-left margin-top-10"><i class="fa fa-calendar" style="color: green;" aria-hidden="true"></i> <%= user.createdAt %></div>  
+            </div>
+
+            <div class="row margin-top-10">
+              <div class="articles col-6 ">
+                <h8>مقاله های من </h8>
+
+                <div class="row margin-top-10">
+                  <div class="num-articles col-5 offset-2 padding-0">12</div>
+
+                  <div class="add-article col-2 padding-0">    
+                    <form action="/api/signup" method="GET">
+                      <input class="add" type="submit" value="+">
+                    </form>
+                  </div>              
+                </div>  
+
+              </div>
+
+              <div class="comments col-6 ">
+                <h8>پیام ها </h8>
+
+                <div class="row margin-top-10">
+                  <div class="num-comments col-6 offset-3 padding-0">
+                    <form action="" method="GET">
+                      <input class="show-comments col" type="submit" value="10">
+                    </form>
+                  </div>            
+                </div>  
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+    
+  </div>
+  <div class="edit col-6 offset-3 right-to-left padding-0">
+    <div class="row">
+      <form class="col-6"  action="/api/user/editProfile" method="POST">
+        <input class="edit-button"  type="submit" value="ویرایش">
+      </form>
+      <form class="col-6" action="/api/user/logOut" method="POST">
+        <input class="log-out"  type="submit" value="خروج">
+      </form>
+    </div>
+    
+  </div>
+
+  <%- include('../partials/scripts') -%>
+  <script src="/javascripts/dashboard.js"></script>
 </body>
 </html>
