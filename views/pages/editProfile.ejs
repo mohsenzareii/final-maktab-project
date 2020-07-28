@@ -1,55 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/stylesheets/edit-profile.css">
+  <%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/edit-profile.css">
 </head>
+
 <body>
-    <div class="col-8 offset-2">
-        <img src="/gallary/default-photo.png"  class="profile-photo col-4 offset-4 margin-top-30" alt="">
-        <div class="custom-file col-4 offset-4 margin-top-10">
-            <input type="file" class="custom-file-input" id="customFile" accept="image/*">
-            <label class="custom-file-label" for="customFile">Choose file</label>
+  <div class="col-12 grad">
+    <div class="row right-to-left">
+      <nav class="nav col-11 ">
+        <a class="nav-link text-white" href="#"><i class="fa fa-home" aria-hidden="true"></i> خانه</a>
+        <a class="nav-link text-white" href="#"><i class="fa fa-user" aria-hidden="true"></i> کاربران  </a>
+        <a class="nav-link text-white" href="#">مقالات</a>
+      </nav>
+
+      <nav class="nav col-1 ">
+        <a class="nav-link text-white" href="/api/user/logOut"> <i class="fa fa-sign-out" aria-hidden="true"></i> خروج</a>
+      </nav>
+  </div>
+
+  <div class="registery-form rounded col-8 offset-2 ">
+    <div class="row ">
+      <div class="col-7  right-to-left">
+        <form class="py-4">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firstName">نام</label>
+              <input type="text" class="form-control" name="firstName" id="firstName" value="<%= user.firstName %>"
+                placeholder="نام">
+            </div>
+            <div class="form-group col-6">
+              <label for="lastName">نام خانوادگی </label>
+              <input type="text" class="form-control" name="lastName" id="lastName" value="<%= user.lastName %>"
+                placeholder="نام خانوادگی">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="mobile">موبایل</label>
+              <input type="text" class="form-control" name="mobile" id="mobile" value="<%= user.mobile %>"
+                placeholder="09XXXXXXXX">
+            </div>
+
+            <div class="form-group col-6">
+              <label for="userName">نام کاربری</label>
+              <input type="text" class="form-control" name="userName" id="userName" value="<%= user.userName %>"
+                placeholder="نام کاربری">
+            </div>
           </div>
 
-          <form action="" method="" class="needs-validation margin-top-30" novalidate>
-            <div class="form-row">
-              <div class="col-md-4 offset-4 right-to-left margin-top-10">
-                <label  for="firstName">نام </label>
-                <input type="text" class="form-control" id="firstName" placeholder="First name" value="<%= user.firstName %>" required>
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-md-4 offset-4 right-to-left margin-top-10">
-                <label for="lastName">نام خانوادگی</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Last name" value="<%= user.lastName %>" required>
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-md-4 offset-4 right-to-left margin-top-10">
-                <label for="userName">نام کاربری</label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="userName" placeholder="Username" value="<%= user.userName %>" aria-describedby="inputGroupPrepend" required>
-                  <div class="invalid-feedback">
-                    Please choose a username.
-                  </div>
-                </div>
-              </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="education">تحصیلات</label>
+              <select class="custom-select " id="education" name="education">
+                <option selected>Choose...</option>
+                <option value="1">فوق دیپلم</option>
+                <option value="2">لیسانس</option>
+                <option value="3">فوق لیسانس</option>
+                <option value="3">دکتری</option>
+              </select>
             </div>
-            
-            <input type="button" class="btn btn-primary col-4 offset-4 margin-top-10" value="تایید" onclick="edit()">
-          </form>
-         
-          <% if (message) { %>
-            <div class="alert alert-danger" role="alert">
-               <%= message %>
-            </div>
-          <% } %>  
-          
+
+          </div>
+          <button type="submit" onclick="edit()" class="btn btn-primary">تایید</button>
+        </form>
+      </div>
+
+      <div class="col-5 ">
+        <% if (user.avatar) { %>
+        <img src="<%= user.avatar %>" class="col-8 mt-5 offset-2 alt="">
+                <% } else { %>
+                  <img src=" /gallary/default-photo.png" class="col-8 mt-5 offset-2" alt="">
+        <% } %>
+
+        <div class="custom-file mt-2">
+          <input type="file" class="custom-file-input" name="avatar" id="customFileLang" accept=".png, .jpg, .jpeg" lang="pl-Pl">
+          <label class="custom-file-label" for="customFileLang">choose file ..</label>
+        </div>
+      </div>
+
     </div>
-    <%- include('../partials/scripts') %>
-    <script src="/javascripts/editProfile.js"></script>
+
+    <% if (message) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= message %>
+    </div>
+    <% } %>
+
+  </div>
+  <%- include('../partials/scripts') %>
+  <script src="/javascripts/editProfile.js"></script>
 </body>
+
 </html>

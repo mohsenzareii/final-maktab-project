@@ -1,0 +1,177 @@
+.margin-top-35{
+    margin-top: 35px;
+}
+
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.margin-top-10{
+    margin-top: 10px;
+}
+
+.margin-top-5{
+    margin-top: 5px;
+}
+
+.margin-bottom-10{
+    margin-bottom: 10px;
+}
+
+.padding-0{
+    padding: 0;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+body{
+    background-color: rgb(53, 155, 219);
+    box-sizing: content-box;
+    direction: rtl;
+}
+
+
+.menu-bar{
+    direction: rtl;
+}
+.menu-content{
+   border-radius: 5px;
+   background-color: white;
+   padding-top: 10px ;
+   padding-bottom: 10px; 
+  
+}
+
+.profile-photo{
+    border-radius: 50%;
+}
+
+.userName{
+    text-align: center;  
+}
+
+
+
+.profile-link{
+    text-align: right;
+    background-color: white;
+    border: none;
+}
+
+.profile-link:hover{
+    color: rgb(51, 51, 180);
+}
+
+.profile-link:focus{
+    border: none;
+    outline: none;
+}
+
+.profile-link:active{
+    border: none;
+    outline: none;
+}
+
+.profile-link:visited{
+    border: none;
+    outline: none;
+}
+
+.other-articles-link{
+    text-align: right;
+    background-color: white;
+    border: none;
+}
+
+.other-articles-link:hover{
+    color: rgb(51, 51, 180);
+}
+
+.other-articles-link:focus{
+    border: none;
+    outline: none;
+}
+
+.other-articles-link:active{
+    border: none;
+    outline: none;
+}
+
+.other-articles-link:visited{
+    border: none;
+    outline: none;
+}
+
+.new-article-link{
+    text-align: right;
+    background-color: white;
+    border: none;
+}
+
+
+.new-article-link:hover{
+    color: rgb(51, 51, 180);
+}
+
+.new-article-link:focus{
+    border: none;
+    outline: none;
+}
+
+.new-article-link:active{
+    border: none;
+    outline: none;
+}
+
+.new-article-link:visited{
+    border: none;
+    outline: none;
+}
+
+.exit-link{
+    text-align: right;
+    background-color: white;
+    border: none;
+}
+
+.exit-link:hover{
+    color: red;
+}
+
+.exit-link:focus{
+    border: none;
+    outline: none;
+}
+
+.exit-link:active{
+    border: none;
+    outline: none;
+}
+
+.exit-link:visited{
+    border: none;
+    outline: none;
+}
+
+.article-info{
+    background-color: white;
+    border-radius: 5px;
+}
+
+.article-title{
+    text-align: center;
+}
+
+.abstract{
+    height: 100px;
+  
+}
+
+p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}

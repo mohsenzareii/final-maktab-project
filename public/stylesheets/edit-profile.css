@@ -1,23 +1,17 @@
-.margin-top-30{
-    margin-top: 30px;
+
+
+.right-to-left {
+  direction: rtl;
+  text-align: right;
 }
 
-.margin-top-10{
-    margin-top: 10px;
-}
+.grad {
+    background-image: linear-gradient(to right,rgb(88, 88, 212),rgb(81, 243, 255));
+    height: 450px;
+  }
 
-.right-to-left{
-    direction: rtl;
-    text-align: right;
-}
-
-.profile-photo{
-    border-radius: 5px;
-    padding: 0;
-}
-
-.choosed-photo{
-    background-color: blue;
-    border: none;
-    color: white;
-}
+  .registery-form{
+    background-color: white;
+    margin-top: 150px;
+    box-shadow: lightgray 1px 1px 20px ;
+  }
