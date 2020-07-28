@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/myArticles.css">
+</head>
+<body>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-10 margin-top-10  " style=" margin-right:220px;" >
+                <div class="article-info col-12 padding-0">
+                    <div class="row">
+                        <div class="article-photo col-2 rounded-right padding-0">
+                            <img src="/gallary/default-article.png" class="col-12 rounded-right" alt="">
+                        </div>
+                        <div class="col-10 ">
+                            <h5 class="article-title">security of IOT</h5>
+                            <div class="abstract padding-0 px-5 col-12">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illo, ab eligendi porro doloremque quas aperiam minima consectetur laboriosam nisi quia perspiciatis sunt earum accusamus ex ipsum. Ea, eveniet totam? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, dolores distinctio voluptatum, veniam quia neque sit, iure similique placeat nam vero iusto nulla error? Distinctio illum ipsa quibusdam obcaecati consectetur.
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore, omnis consequatur id vero vel placeat iste enim eveniet repellendus? Facilis ratione voluptatibus nulla unde eum aperiam, officia exercitationem nostrum vitae.
+                                </p>
+                             </div>
+                            <div class="col-12 mt-2 text-center">
+                                <i class="fa fa-trash text-danger pointer" aria-hidden="true"></i>
+                                <i class="fa fa-comment text-success pointer" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-article col-12  border border-danger">
+
+                </div>
+            </div>
+            <div class="menu-bar fixed-top  col-2">
+                <div class="menu-content  margin-top-10  col-12">
+                    <div class="profile-photo col-12">
+                        <% if (user.avatar) { %>
+                            <img src="<%= user.avatar %>" class="col-12 padding-0 profile-photo" alt="">
+                        <% } else { %> 
+                            <img src="/gallary/default-photo.png" class="col-12 padding-0 profile-photo" alt="">
+                        <% } %>     
+                    </div>
+                    <div class="userName">
+                        <h5><%= user.userName %></h4>
+                    </div>
+                    <div class="profile row">
+                        <i class="text-primary margin-top-35 padding-0 col-2 fa fa-user-circle-o" aria-hidden="true"></i>
+                        <form class="col-10 padding-0" action="/api/user/dashboard" method="GET">
+                            <input class="profile-link col-12 margin-top-30 pointer" type="submit" value="پروفایل">
+                        </form>
+                       
+    
+                    </div>
+                    <hr class="divider margin-top-10 col-8 offset-2">
+                    <div class="other-articles row">
+                        <i class="text-info  col-2 padding-0 margin-top-5 fa fa-newspaper-o" aria-hidden="true"></i>
+                        <form class="col-10 padding-0" action="" method="">
+                            <input class="other-articles-link col-12 pointer" type="submit" value="مقاله دیگران">
+                        </form>
+                        
+                    </div>
+                    <hr class="divider margin-top-10 col-8 offset-2">
+                    <div class="new-article row">
+                        <i class="text-success col-2 padding-0 margin-top-5 fa fa-newspaper-o" aria-hidden="true"></i>
+                        <form class="col-10 padding-0" action="" method="">
+                            <input class="new-article-link col-12 pointer" type="button" value="مقاله جدید +">
+                        </form>
+                      
+    
+                    </div>
+                    <hr class="divider margin-top-10 col-8 offset-2">
+                    <div class="exit margin-bottom-10 row">
+                        <i class="text-danger fa fa-sign-out margin-top-5 col-2 padding-0"  aria-hidden="true"></i>
+                        <form  class="col-10 padding-0" action="/api/user/logOut" method="GET">
+                            <button class="exit-link col-12 pointer" type="button" > خروج</button>  
+                        </form>
+                       
+                    </div>
+                </div>
+                </div>
+                
+        </div>
+    </div>
+
+    <%- include('../partials/scripts') %>
+</body>
+</html>

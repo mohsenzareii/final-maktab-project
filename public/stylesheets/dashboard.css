@@ -1,114 +1,50 @@
 *{
+    padding: 0;
     margin: 0;
-    padding: 0;
-}
-
-.padding-0{
-    padding: 0;
-}
-
-.margin-top-30{
-    margin-top: 30px;
-}
-
-.margin-top-20{
-    margin-top: 20px;
-}
-
-.margin-top-10{
-    margin-top: 10px;
-}
-
-.right-to-left{
-    direction: rtl;
     text-align: right;
 }
 
-body{
-    background-color: rgb(53, 155, 219);
+.rigth-to-left{
+    direction: rtl;
 }
 
-.card{
-  border-radius: 5px;
-  border: none;
-  margin-top: 150px;
-  position:relative;
+.mt-12{
+    margin-top: 115px;
 }
 
-.photo{
- width: inherit;
- border-top-left-radius: 5px;
- border-bottom-left-radius: 5px;
-}
 
-.card-info{
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.grad {
+    background-image: linear-gradient(to right,rgb(88, 88, 212),rgb(81, 243, 255));
+    height: 450px;
+  }
+
+ .content{
     
-}
+     /* border-radius: 5px; */
+     background-color: white;
+     margin-top: -300px;
+     box-shadow: lightgray 1px 1px 20px ;
+ } 
 
-.user-name{
-    text-align: center;
-}
+ .avatar{
+     border-radius: 5px;
+ }
 
+ .profile-info{
+    box-shadow: lightgray 1px 1px 10px ;
+ }
 
+ .articles-view,.comment-view{
+    box-shadow: lightgray 1px 1px 10px ;
+ }
 
+ .btn-outline-success{
+     color:rgb(81, 243, 255) ;
+     border:rgb(81, 243, 255) solid 1px ;
+ }
 
-.articles,.comments{
-    text-align: center;
-}
-
-.num-articles,.num-comments{
-    text-align: center;
-}
-
-.add-article,.num-comments{
-    position: relative;
-    z-index: 2;
-}
-.add{
-    cursor: pointer;
-    border-radius: 50%;
-    border: none;
-    width: 24px;
-    background-color: rgb(0, 255, 0);
-    color: white;
-    
-}
-
-.show-comments{
-    border: none;
-    background-color: white;
-    cursor: pointer;
-}
-
-.edit{
-    position: relative;
-   margin-top: -26px;
-}
-
-.edit-button{
-    border-radius: 50%;
-    height: 52px;
-    border: none;
-    background-color: red;
-    color: white;
-    padding: 3px;
-    cursor: pointer;
-    
-    
-    margin-right: -25px;
-}
-
-.log-out{
-    border-radius: 50%;
-    height: 52px;
-    width: 52px;
-    border: none;
-    background-color: red;
-    color: white;
-    padding: 3px;
-    cursor: pointer;
-    margin-right:295px;
-   
+ .btn-outline-success:hover{
+    color:white ;
+    border:rgb(81, 243, 255) solid 1px ;
+    background-color: rgb(81, 243, 255) ;
 }

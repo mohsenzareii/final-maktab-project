@@ -11,6 +11,34 @@ const edit= function(){
         url: '/api/user/edit',
         type:"PUT",
         data:userData,
-       
+        success : function (res){
+            if(res.redirect){
+                window.location = res.redirect;
+            }
+        }    
     });
+}
+
+$(document).ready(function () {
+    // $('#customFileLang').click(function() {
+        // $('#customFileLang').show();
+        // $('.btn').prop('disabled', false);
+        $('#customFileLang').change(function() {
+            let filename = $('#customFileLang').val();
+            validateFileType(filename);
+           
+            
+        });
+    // });​
+});
+
+function validateFileType(fileName){
+    
+    let idxDot = fileName.lastIndexOf(".") + 1;
+    let extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+        $('.custom-file-label').html(fileName);
+    }else{
+        alert("فایل با پسوند jpg/jpeg  یا png پذیرفته می شود !");
+    }   
 }

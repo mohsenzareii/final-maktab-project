@@ -6,71 +6,89 @@
 </head>
 <body>
   
-  <div class="card col-6 offset-3 ">
-    
-      <div class="row">
-          <div class="card-photo col-5 padding-0">
-            <img src="/gallary/default-photo.png" class="photo" alt="">
-          </div>
-
-          <div class="card-info col-7 padding-0">
-            <div class="col-6 offset-3 margin-top-30">
-              <h3 class="user-name"><%= user.userName %></h3>
-            </div>
-
-            <div class="public-info col right-to-left margin-top-20">
-                <div class="first-name col right-to-left"><i class="fa fa-user" style="color: blue;" aria-hidden="true"></i>  <%= user.firstName %> <%= user.lastName %> </div> 
-                <div class="first-name col right-to-left margin-top-10"><i class="fa fa-transgender" style="color: palevioletred;" aria-hidden="true"></i> <%= user.sex %></div>
-                <div class="first-name col right-to-left margin-top-10"><i class="fa fa-mobile" aria-hidden="true"></i> <%= user.mobile %></div>
-                <div class="first-name col right-to-left margin-top-10"><i class="fa fa-calendar" style="color: green;" aria-hidden="true"></i> <%= user.createdAt %></div>  
-            </div>
-
-            <div class="row margin-top-10">
-              <div class="articles col-6 ">
-                <h8>مقاله های من </h8>
-
-                <div class="row margin-top-10">
-                  <div class="num-articles col-5 offset-2 padding-0">12</div>
-
-                  <div class="add-article col-2 padding-0">    
-                    <form action="/api/signup" method="GET">
-                      <input class="add" type="submit" value="+">
-                    </form>
-                  </div>              
-                </div>  
-
-              </div>
-
-              <div class="comments col-6 ">
-                <h8>پیام ها </h8>
-
-                <div class="row margin-top-10">
-                  <div class="num-comments col-6 offset-3 padding-0">
-                    <form action="" method="GET">
-                      <input class="show-comments col" type="submit" value="10">
-                    </form>
-                  </div>            
-                </div>  
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-    
-  </div>
-  <div class="edit col-6 offset-3 right-to-left padding-0">
+  <div  class="grad col-12 rigth-to-left">
     <div class="row">
-      <form class="col-6"  action="/api/user/editProfile" method="POST">
-        <input class="edit-button"  type="submit" value="ویرایش">
-      </form>
-      <form class="col-6" action="/api/user/logOut" method="POST">
-        <input class="log-out"  type="submit" value="خروج">
-      </form>
-    </div>
-    
-  </div>
+      <nav class="nav col-11 ">
+        <a class="nav-link text-white" href="#"><i class="fa fa-home" aria-hidden="true"></i> خانه</a>
+        <a class="nav-link text-white" href="#"><i class="fa fa-user" aria-hidden="true"></i> کاربران  </a>
+        <a class="nav-link text-white" href="#">مقالات</a>
+      </nav>
 
+      <nav class="nav col-1 ">
+        <a class="nav-link text-white" href="/api/user/logOut"> <i class="fa fa-sign-out" aria-hidden="true"></i> خروج</a>
+      </nav>
+    </div>
+   
+  </div>
+  <div class="content rounded col-6 offset-3">
+    <div class="row">
+      <div class="col-8 py-3 px-3 ">
+        
+
+        <div class="profile-info col-12 py-3  border rounded ">
+          <div class="membership  rigth-to-left col-12 "><i class="fa fa-calendar px-3 text-success" aria-hidden="true"></i><%= user.createdAt %></div>
+          <div class="userName mt-2 rigth-to-left col-12"><i class="fa fa-user-circle-o px-3 text-primary" aria-hidden="true"></i><%= user.userName %> </div>
+          <div class="mobileNumber mt-2 rigth-to-left col-12"><i class="fa fa-mobile px-3 text-secondary" aria-hidden="true"></i><%= user.mobile %></div>
+          <div class="mobileNumber mt-2 rigth-to-left col-12"><i class="fa fa-envelope px-3 text-danger" aria-hidden="true"></i><%= user.mobile %></div>
+          <div class="education mt-2 rigth-to-left col-12"><i class="fa fa-graduation-cap px-3 " aria-hidden="true"></i><%= user.mobile %></div>
+          <div class="sex mt-2 rigth-to-left col-12">
+            <% if(user.sex==="male") { %>
+              <i class="fa fa-mars px-3 text-primary" aria-hidden="true"></i> مذکر
+            <% } else if (user.sex==="female") { %>
+              <i class="fa fa-venus px-3 text-danger aria-hidden="true"></i> مونث  
+            <% } %>  
+          </div>
+
+          <hr class="text-dark m-0 mt-2 col-10">
+
+          <div class="nav col-12  rigth-to-left">
+            <a class="nav-link text-info" href="/api/user/editProfile"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> ویرایش</a>
+          </div>
+          <!-- <form action="/api/user/editProfile" method="POST">
+            <input class="btn btn mt-1 btn-outline-success col-12 mb-2" type="submit" value="ویرایش">
+          </form>
+          -->
+        </div>
+       
+        <div class="row col-12 p-0 m-0">
+          <div class="articles-view col-4 mt-4 border rounded px-2 py-2">
+            <p class="text-center"><b>مقاله های من</b></p>
+            <div class="col-12 text-center">12</div>
+            <form class="text-center mt-2" action="/api/articles/myArticles" method="GET">
+              <input class="btn btn btn-outline-success col-12" type="submit" value="مشاهده">
+            </form>
+          </div>
+
+          <div class="comment-view col-4  offset-4 mt-4 border rounded px-2 py-2">
+            <p class="text-center"><b>پیام ها</b></p>
+            <div class="col-12 text-center">12</div>
+            <form class="text-center mt-2" action="/api/comments" method="GET">
+              <input class="btn btn btn-outline-success col-12" type="submit" value="مشاهده">
+            </form>
+          </div>
+          
+        </div>
+      
+
+       
+      </div>
+      <div class="col-4 py-3 px-3 ">
+        <img src="/gallary/default-photo.png" class="rounded col-12" alt="profile image">
+
+        <div class="rigth-to-left col-12 pt-1"> 
+          <h3 class="text-right"><%= user.firstName %></h3>
+          <h3 class="text-right"><%= user.lastName %></h3></h3> 
+        </div>
+
+        <div class="nav col-12 mt-12 rigth-to-left">
+          <a class=" ml-1 mr-2 text-white text-muted fa-2x" href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+          <a class=" mx-1  text-white text-muted fa-2x" href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+          <a class=" mx-1  text-white text-muted fa-2x" href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
   <%- include('../partials/scripts') -%>
   <script src="/javascripts/dashboard.js"></script>
 </body>

@@ -2,6 +2,7 @@ const express = require ('express');
 const router = express.Router();
 const User = require ('../models/user');
 const userRouter = require('./user');
+const articleRouter = require('./articles');
 
 const checkSession = function(req, res, next) { 
     if (!req.session.user) return res.redirect('/api/login')
@@ -17,6 +18,12 @@ const isLogin = function (req, res, next) {
 
 //route to user.js
 router.use('/user', checkSession, userRouter);
+
+//route to articles.js
+router.use('/articles', checkSession, articleRouter);
+// router.get('/myArticles', (req,res) =>{
+//     res.render('pages/myArticles');
+// });
 
 //send home page to client
 router.get('/', (req, res) =>{
