@@ -30,6 +30,10 @@
      border-radius: 5px;
  }
 
+ .selected-avatar{
+     height: 192px;
+ }
+
  .profile-info{
     box-shadow: lightgray 1px 1px 10px ;
  }

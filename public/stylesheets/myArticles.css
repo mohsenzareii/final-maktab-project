@@ -1,3 +1,7 @@
+.mt-20{
+    margin-top: 180px;
+}
+
 .margin-top-35{
     margin-top: 35px;
 }
@@ -29,23 +33,21 @@
 body{
     background-color: rgb(53, 155, 219);
     box-sizing: content-box;
-    direction: rtl;
+    
 }
 
 
-.menu-bar{
-    direction: rtl;
-}
 .menu-content{
    border-radius: 5px;
    background-color: white;
    padding-top: 10px ;
    padding-bottom: 10px; 
-  
+   direction: rtl;
 }
 
 .profile-photo{
     border-radius: 50%;
+    height: 134px;
 }
 
 .userName{
@@ -174,4 +176,9 @@ p{
     overflow: hidden;
     text-overflow: ellipsis;
 
+}
+
+.add-article{
+    z-index: 2;
+    background-color: white;
 }

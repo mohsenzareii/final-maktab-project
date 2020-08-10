@@ -4,12 +4,17 @@ const User = require ('../models/user');
 const multer = require('multer');
 const fs = require('fs');
 
+
+let upload = multer({ dest: 'uploads/' })
+let app = express()
+
+
 //disk storage multer -> storage images address and name
 const storage = multer.diskStorage({
     destination : function (req, file, cb){
         cb(null,'public/avatar');
     },
-    filename : function(req,file,cb){
+    filename : function(req, file, cb){
         cb(null, req.session.user.userName + "-"+ file.originalname);
     }
 });
@@ -33,7 +38,6 @@ router.put('/edit', async(req,res) =>{
             throw new  Error('لطفا تمام موارد را کامل وارد کنید ');
          }
          console.log(req.body.avatar);
-        //  npm
 
          await User.findByIdAndUpdate({_id : req.session.user._id}, {$set :{firstName : req.body.firstName,
                                                                             lastName : req.body.lastName,
@@ -46,6 +50,26 @@ router.put('/edit', async(req,res) =>{
         res.render('pages/editProfile', {user : req.session.user, message : error.message});
     }
    
+});
+
+//upload new avatar and route to dashboard
+router.post('/uploadAvatar', (req, res) =>{
+    const upload = uploadAvatar.single('avatar');
+    
+         upload(req, res, (err)=>{
+            User.findByIdAndUpdate(req.session.user._id, {avatar : req.file.filename}, {new : true}, (err, user) =>{
+                if(err) res.status(400).send(err);
+
+                if(req.session.user.avatar){
+                    fs.unlinkSync(`public/avatar/${req.session.user.avatar}`);
+                }
+
+                req.session.user.avatar = req.file.filename;
+                res.json(user);
+            }) ;
+           
+        });
+        res.redirect('/api/user/dashboard');
 });
 
 //log out : delete session and send home page to client
