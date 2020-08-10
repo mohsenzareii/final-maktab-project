@@ -20,16 +20,13 @@ const edit= function(){
 }
 
 $(document).ready(function () {
-    // $('#customFileLang').click(function() {
-        // $('#customFileLang').show();
-        // $('.btn').prop('disabled', false);
+    
         $('#customFileLang').change(function() {
             let filename = $('#customFileLang').val();
             validateFileType(filename);
-           
-            
+  
         });
-    // });​
+
 });
 
 function validateFileType(fileName){

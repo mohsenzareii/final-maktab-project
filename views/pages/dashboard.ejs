@@ -73,8 +73,12 @@
        
       </div>
       <div class="col-4 py-3 px-3 ">
-        <img src="/gallary/default-photo.png" class="rounded col-12" alt="profile image">
-
+        <% if (user.avatar) { %>
+          <img src="/avatar/<%= user.avatar %>" class="selected-avatar rounded col-12" alt="profile image">
+        <% } else {%>
+          <img src="/gallary/default-photo.png" class="rounded col-12" alt="profile image">
+        <% } %>  
+        
         <div class="rigth-to-left col-12 pt-1"> 
           <h3 class="text-right"><%= user.firstName %></h3>
           <h3 class="text-right"><%= user.lastName %></h3></h3> 

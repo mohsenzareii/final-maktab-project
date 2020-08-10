@@ -5,14 +5,13 @@
     <link rel="stylesheet" href="/stylesheets/myArticles.css">
 </head>
 <body>
-    <div class="col-12">
+
+    
+    <div class="col-12" >
         <div class="row">
-            <div class="col-10 margin-top-10  " style=" margin-right:220px;" >
-                <div class="article-info col-12 padding-0">
+            <div class="col-10" >
+                <div class="article-info col-12 mt-3 px-0 py-0">
                     <div class="row">
-                        <div class="article-photo col-2 rounded-right padding-0">
-                            <img src="/gallary/default-article.png" class="col-12 rounded-right" alt="">
-                        </div>
                         <div class="col-10 ">
                             <h5 class="article-title">security of IOT</h5>
                             <div class="abstract padding-0 px-5 col-12">
@@ -25,28 +24,29 @@
                                 <i class="fa fa-comment text-success pointer" aria-hidden="true"></i>
                             </div>
                         </div>
+                        <div class="article-photo col-2 rounded-right px-0 py-0">
+                            <img src="/gallary/default-article.png" class="col-12 rounded-right" alt="">
+                        </div>
+
                     </div>
                 </div>
-
-                <div class="add-article col-12  border border-danger">
-
-                </div>
-            </div>
-            <div class="menu-bar fixed-top  col-2">
-                <div class="menu-content  margin-top-10  col-12">
+            </div> 
+            
+            <div class="col-2 sticky-top ">
+                <div class="menu-content  mt-3  col-12">
                     <div class="profile-photo col-12">
                         <% if (user.avatar) { %>
-                            <img src="<%= user.avatar %>" class="col-12 padding-0 profile-photo" alt="">
+                            <img src="/avatar/<%= user.avatar %>" class="col-12 px-0 py-0 profile-photo" alt="">
                         <% } else { %> 
-                            <img src="/gallary/default-photo.png" class="col-12 padding-0 profile-photo" alt="">
-                        <% } %>     
+                            <img src="/gallary/default-photo.png" class="col-12 px-0 py-0 profile-photo" alt="">
+                        <% } %>    
                     </div>
                     <div class="userName">
                         <h5><%= user.userName %></h4>
                     </div>
                     <div class="profile row">
-                        <i class="text-primary margin-top-35 padding-0 col-2 fa fa-user-circle-o" aria-hidden="true"></i>
-                        <form class="col-10 padding-0" action="/api/user/dashboard" method="GET">
+                        <i class="text-primary margin-top-35 px-0 py-0 col-2 fa fa-user-circle-o" aria-hidden="true"></i>
+                        <form class="col-10 px-0 py-0" action="/api/user/dashboard" method="GET">
                             <input class="profile-link col-12 margin-top-30 pointer" type="submit" value="پروفایل">
                         </form>
                        
@@ -63,8 +63,8 @@
                     <hr class="divider margin-top-10 col-8 offset-2">
                     <div class="new-article row">
                         <i class="text-success col-2 padding-0 margin-top-5 fa fa-newspaper-o" aria-hidden="true"></i>
-                        <form class="col-10 padding-0" action="" method="">
-                            <input class="new-article-link col-12 pointer" type="button" value="مقاله جدید +">
+                        <form class="col-10 padding-0" action="/api/articles/newArticle" method="GET">
+                            <input class="new-article-link col-12 pointer" type="submit" value="مقاله جدید +">
                         </form>
                       
     
@@ -78,11 +78,11 @@
                        
                     </div>
                 </div>
-                </div>
-                
+                    
+            </div>
         </div>
     </div>
-
+  
     <%- include('../partials/scripts') %>
 </body>
 </html>

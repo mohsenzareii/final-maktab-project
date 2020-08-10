@@ -68,16 +68,20 @@
       </div>
 
       <div class="col-5 ">
-        <% if (user.avatar) { %>
-        <img src="<%= user.avatar %>" class="col-8 mt-5 offset-2 alt="">
-                <% } else { %>
-                  <img src=" /gallary/default-photo.png" class="col-8 mt-5 offset-2" alt="">
-        <% } %>
+        <form action="/api/user/uploadAvatar" method="POST" enctype="multipart/form-data">
+          <% if (user.avatar) { %>
+            <img src="/avatar/<%= user.avatar %>" class="selected-image col-8 mt-5 offset-2 avatar" alt="">
+                    <% } else { %>
+                      <img src=" /gallary/default-photo.png" class="col-8 mt-5 offset-2 avatar" alt="">
+            <% } %>
+            
+            <div class="custom-file mt-2">
+              <input type="file" class="custom-file-input" name="avatar" id="customFileLang" accept=".png, .jpg, .jpeg" lang="pl-Pl">
+              <label class="custom-file-label" for="customFileLang">choose file ..</label>
+            </div>
 
-        <div class="custom-file mt-2">
-          <input type="file" class="custom-file-input" name="avatar" id="customFileLang" accept=".png, .jpg, .jpeg" lang="pl-Pl">
-          <label class="custom-file-label" for="customFileLang">choose file ..</label>
-        </div>
+            <button type="submit"  class="btn btn-primary mt-3 col-2 offset-10">تایید</button>
+        </form>
       </div>
 
     </div>
